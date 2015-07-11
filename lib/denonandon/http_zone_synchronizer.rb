@@ -18,19 +18,23 @@ module Denonandon
         
         case
         when zone1_power == 'ON' && zone2_power != 'ON'
-          puts "zone1_power=#{zone1_power} zone2_power=#{zone2_power} action=power_on_zone2"
+          log "zone1_power=#{zone1_power} zone2_power=#{zone2_power} action=power_on_zone2"
           @client.command 'PutZone_OnOff/ON', 'ZONE2'
         when zone1_power == 'OFF' && zone2_power == 'ON'
-          puts "zone1_power=#{zone1_power} zone2_power=#{zone2_power} action=power_off_zone2"
+          log "zone1_power=#{zone1_power} zone2_power=#{zone2_power} action=power_off_zone2"
           @client.command 'PutZone_OnOff/OFF', 'ZONE2'
         else
-          puts "zone1_power=#{zone1_power} zone2_power=#{zone2_power}"
+          log "zone1_power=#{zone1_power} zone2_power=#{zone2_power}"
         end
       rescue => e
-        puts "synchronizer: #{e}"
+        log "exception=#{e.class} exception_message=#{e.message}"
       end
 
       sleep 3
+    end
+
+    def log(message)
+      puts "http_zone_synchronizer: #{message}"
     end
   end
 end
