@@ -15,4 +15,9 @@ end
 sync = Denonandon::HttpZoneSynchronizer.new(host)
 
 sync.start
-sync.join
+
+begin
+  sync.join
+rescue Interrupt
+  exit 0
+end
