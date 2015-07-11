@@ -24,7 +24,7 @@ module Denonandon
           log "zone1_power=#{zone1_power} zone2_power=#{zone2_power} action=power_off_zone2"
           @client.command 'PutZone_OnOff/OFF', 'ZONE2'
         else
-          log "zone1_power=#{zone1_power} zone2_power=#{zone2_power}"
+          # log "zone1_power=#{zone1_power} zone2_power=#{zone2_power}"
         end
       rescue => e
         log "exception=#{e.class} exception_message=#{e.message}"
