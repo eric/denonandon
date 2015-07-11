@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'denonandon/http_zone_synchronizer'
+
+def usage(code = 1)
+  puts "Usage: #{File.basename($0)} <host>"
+  exit(code)
+end
+
+unless host = ARGV.shift
+  usage
+end
+
+sync = Denonandon::HttpZoneSynchronizer.new(host)
+
+sync.start
+sync.join
