@@ -3,6 +3,9 @@
 require 'optparse'
 require 'denonandon/http_zone_synchronizer'
 
+# Make sure that stdout flushes
+$stdout.sync = true
+
 def usage(code = 1)
   puts "Usage: #{File.basename($0)} <host>"
   exit(code)
