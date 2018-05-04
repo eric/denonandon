@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     denonandon (0.0)
+      atomic
 
 GEM
   remote: https://rubygems.org/
